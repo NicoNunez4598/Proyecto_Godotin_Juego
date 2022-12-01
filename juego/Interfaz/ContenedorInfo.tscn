@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=1]
+[ext_resource path="res://Recursos/Fonts/Kenney Future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Recursos/HUD/lifes.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="ContenedorInfo" type="NinePatchRect"]
+self_modulate = Color( 0.384314, 0, 1, 0.376471 )
+margin_right = 113.0
+margin_bottom = 52.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -52.4454
+margin_top = -44.409
+margin_right = -0.445427
+margin_bottom = 26.591
+texture = ExtResource( 3 )
+
+[node name="Cantidad" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 9.35444
+margin_top = -22.5
+margin_right = 60.3544
+margin_bottom = 22.5
+custom_fonts/font = SubResource( 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
