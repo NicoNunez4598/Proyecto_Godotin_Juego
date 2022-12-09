@@ -29,9 +29,11 @@ onready var arbol_animacion: ArbolAnimacionPlayer = $ArbolAnimacion
 onready var linterna: SpotLight = $Linterna
 
 ## Metodos
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	brazo_camara.translation = translation
 
+# warning-ignore:unused_argument
 func _physics_process(delta: float) -> void:
 	movimiento_vertical()
 	movimiento_horizontal()
@@ -100,7 +102,8 @@ func movimiento_vertical() -> void:
 			arbol_animacion.set_valor_mezcla_saltar_caer(i * 0.1)
 
 func respawn() -> void:
-	DatosPlayer.restar_vidas()
-	DatosPlayer.reset_monedas()
-	if DatosPlayer.vidas >= 1:
+	DatosJuego.restar_vidas()
+	DatosJuego.reset_monedas()
+	if DatosJuego.vidas >= 1:
+# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()

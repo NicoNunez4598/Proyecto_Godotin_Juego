@@ -153,5 +153,6 @@ anims/consumida = SubResource( 5 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 visible = false
 stream = ExtResource( 3 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

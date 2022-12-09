@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://juego/PlayerDummy/GodotinDummy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Menus/PantallaCarga/FuenteTexto.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://juego/Menus/PantallaCarga/PantallaCarga.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="PantallaCarga" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextoTip" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_top = 48.0
+margin_right = 356.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+text = "Pro Tip: Para Ganar El Juego Hay Que Tratar De No Morir"
+align = 1
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 400, 400 )
+own_world = true
+transparent_bg = true
+msaa = 1
+usage = 3
+render_target_v_flip = true
+
+[node name="GodotinDummy" parent="Viewport" instance=ExtResource( 1 )]
+
+[node name="Camera" type="Camera" parent="Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 2.3 )
+
+[node name="OmniLight" type="OmniLight" parent="Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95, 0 )
+light_energy = 15.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 480, 320 )
+scale = Vector2( 0.96, 0.97 )
+texture = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

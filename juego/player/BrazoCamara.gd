@@ -35,8 +35,6 @@ func _unhandled_input(evento: InputEvent) -> void:
 			rango_rotacion_camara_y.y)
 	
 	#TODO: solo para debug
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
 
 ## Metodos Custom
 func chequear_camara_invertida() -> Vector2:

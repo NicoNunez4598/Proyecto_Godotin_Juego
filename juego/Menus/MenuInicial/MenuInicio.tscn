@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://juego/Menus/MenuInicial/LetraPresentacion2.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://juego/Menus/MenuInicial/MenuInicio.gd" type="Script" id=2]
+[ext_resource path="res://juego/Menus/MenuInicial/SonidoBoton.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="MenuInicio" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+menu_ajustes = "res://juego/Menus/MenuAjustes/MenuAjustes.tscn"
+nivel_inicial = "res://juego/Niveles/NivelTest.tscn"
+pantalla_carga = "res://juego/Menus/PantallaCarga/PantallaCarga.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -104.0
+margin_top = 150.0
+margin_right = 104.0
+margin_bottom = 193.0
+custom_fonts/font = SubResource( 1 )
+text = "GODOTIN"
+
+[node name="ContenedorPrincipal" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -88.0
+margin_right = 104.0
+margin_bottom = 88.0
+
+[node name="BotonCargar" type="Button" parent="ContenedorPrincipal"]
+margin_right = 208.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+text = "Cargar"
+
+[node name="BotonNuevo" type="Button" parent="ContenedorPrincipal"]
+margin_top = 43.0
+margin_right = 208.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 3 )
+text = "Nuevo"
+
+[node name="BotonOpciones" type="Button" parent="ContenedorPrincipal"]
+margin_top = 86.0
+margin_right = 208.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 4 )
+text = "Opciones"
+
+[node name="HSeparator" type="HSeparator" parent="ContenedorPrincipal"]
+margin_top = 129.0
+margin_right = 208.0
+margin_bottom = 133.0
+
+[node name="BotonSalir" type="Button" parent="ContenedorPrincipal"]
+margin_top = 137.0
+margin_right = 208.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 5 )
+text = "SALIR"
+
+[node name="BotonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[connection signal="pressed" from="ContenedorPrincipal/BotonCargar" to="." method="_on_BotonCargar_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/BotonNuevo" to="." method="_on_BotonNuevo_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/BotonOpciones" to="." method="_on_BotonOpciones_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/BotonSalir" to="." method="_on_BotonSalir_pressed"]

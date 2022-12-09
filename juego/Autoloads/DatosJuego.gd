@@ -1,10 +1,12 @@
-#DatosPlayer.gd
+#DatosJuego.gd
 extends Node
 
 ## Atributos
 var vidas = 3
 var monedas_oro = 0
-var nivel_actual = ""
+var nivel_actual:String = ""
+var num_nivel_actual:int = 0
+var proximo_nivel:String = ""
 var puntaje = 0
 
 ## Metodos Custom
