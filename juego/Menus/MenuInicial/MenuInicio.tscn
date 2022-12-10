@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://juego/Menus/MenuInicial/LetraPresentacion2.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://juego/Menus/MenuInicial/MenuInicio.gd" type="Script" id=2]
 [ext_resource path="res://juego/Menus/MenuInicial/SonidoBoton.wav" type="AudioStream" id=3]
+[ext_resource path="res://juego/Menus/MenuInicial/POL-super-match-short2.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -29,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 menu_ajustes = "res://juego/Menus/MenuAjustes/MenuAjustes.tscn"
-nivel_inicial = "res://juego/Niveles/NivelTest.tscn"
+nivel_inicial = "res://juego/Niveles/Nivel1.tscn"
 pantalla_carga = "res://juego/Menus/PantallaCarga/PantallaCarga.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -92,6 +93,9 @@ text = "SALIR"
 [node name="BotonSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
+
+[node name="MusicaFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="pressed" from="ContenedorPrincipal/BotonCargar" to="." method="_on_BotonCargar_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/BotonNuevo" to="." method="_on_BotonNuevo_pressed"]

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-super-match-short2.wav-7a6623f69845077889ceb7a8f81da5f6.sample"
+
+[deps]
+
+source_file="res://juego/Menus/MenuInicial/POL-super-match-short2.wav"
+dest_files=[ "res://.import/POL-super-match-short2.wav-7a6623f69845077889ceb7a8f81da5f6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

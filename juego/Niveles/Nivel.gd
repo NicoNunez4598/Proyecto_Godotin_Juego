@@ -14,6 +14,7 @@ func _ready() -> void:
 	actualizar_datos()
 # warning-ignore:return_value_discarded
 	Eventos.connect("game_over", self, "game_over")
+	$MusicaFondo.play()
 
 func _get_configuration_warning() -> String:
 	if numero_nivel == 0 or proximo_nivel == "":
@@ -23,7 +24,9 @@ func _get_configuration_warning() -> String:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		var cargar: GuardarCargar = GuardarCargar.new()
+# warning-ignore:return_value_discarded
 		cargar.guardar_datos_juego()
+# warning-ignore:return_value_discarded
 		get_tree().change_scene(menu_inicio)
 
 
@@ -31,6 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func game_over() -> void:
 # warning-ignore:standalone_expression
 	DatosJuego.nivel_actual
+	$MusicaFondo.stop()
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(menu_game_over)
 

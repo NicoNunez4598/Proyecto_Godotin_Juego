@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godotin"
-run/main_scene="res://juego/Niveles/NivelTest.tscn"
+run/main_scene="res://juego/Menus/MenuPresentacion/MenuPresentacion.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Godotin"
 config/icon="res://godotin_icon.png"

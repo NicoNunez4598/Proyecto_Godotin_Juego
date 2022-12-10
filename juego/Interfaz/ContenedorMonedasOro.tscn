@@ -3,3 +3,6 @@
 [ext_resource path="res://Juego/Interfaz/ContenedorMonedas.tscn" type="PackedScene" id=1]
 
 [node name="ContenedorMonedasOro" instance=ExtResource( 1 )]
+__meta__ = {
+"_editor_description_": ""
+}

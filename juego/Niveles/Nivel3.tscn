@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://juego/bloques/ColumnaBloques.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/player/Godotin.tscn" type="PackedScene" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://juego/bloques/BloqueFinal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://juego/bloques/BloqueMedio.tscn" type="PackedScene" id=5]
 [ext_resource path="res://juego/bloques/BloquePendienteMedia.tscn" type="PackedScene" id=6]
-[ext_resource path="res://juego/bloques/BloqueHexagono.tscn" type="PackedScene" id=7]
+[ext_resource path="res://juego/Portal/Portal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://juego/Items/Monedas/MonedaDorada.tscn" type="PackedScene" id=8]
 [ext_resource path="res://juego/Objetos/danio/Sierra.tscn" type="PackedScene" id=9]
 [ext_resource path="res://juego/Interfaz/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://juego/Niveles/Nivel.gd" type="Script" id=11]
+[ext_resource path="res://juego/Niveles/POL-hitch-a-ride-short2.wav" type="AudioStream" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 50, 50 )
@@ -21,10 +22,11 @@ albedo_color = Color( 0.164706, 0.25098, 0.0156863, 1 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 25, 0.001, 25 )
 
-[node name="NivelTest" type="Node"]
+[node name="Nivel3" type="Node"]
 script = ExtResource( 11 )
 numero_nivel = 3
-menu_game_over = "res://juego/Menus/MenuGameOver.tscn"
+proximo_nivel = "res://juego/Niveles/Nivel4.tscn"
+menu_game_over = "res://juego/Menus/MenuGameOver/MenuGameOver.tscn"
 menu_inicio = "res://juego/Menus/MenuInicial/MenuInicio.tscn"
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
@@ -32,12 +34,36 @@ menu_inicio = "res://juego/Menus/MenuInicial/MenuInicio.tscn"
 [node name="Contenedor_de_Monedas" type="Node" parent="."]
 
 [node name="MonedaDorada" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 1.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.19209e-07 )
+
+[node name="MonedaDorada2" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 1.25, -1.19209e-07 )
+
+[node name="MonedaDorada3" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 1.25, -1.19209e-07 )
+
+[node name="MonedaDorada4" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35, 2.25, -1.19209e-07 )
+
+[node name="MonedaDorada5" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35, 2.25, -1.05 )
+
+[node name="MonedaDorada6" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35, 2.25, -2.1 )
+
+[node name="MonedaDorada7" parent="Contenedor_de_Monedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35, 3.75, -7.05 )
 
 [node name="Contenedor_de_Sierras" type="Node" parent="."]
 
 [node name="Sierra" parent="Contenedor_de_Sierras" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.65, 1.4, 0.15 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.65, 1.4, 7.45058e-09 )
+
+[node name="Sierra2" parent="Contenedor_de_Sierras" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.65, 1.4, -0.95 )
+
+[node name="Sierra3" parent="Contenedor_de_Sierras" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.65, 1.4, 0.95 )
 
 [node name="Suelo" type="StaticBody" parent="."]
 collision_layer = 4
@@ -791,7 +817,11 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.8, 3,
 [node name="BloquePendienteMedia9" parent="Plataformas" instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.8, 3, -5.45 )
 
-[node name="BloqueHexagono" parent="Plataformas" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05, 2.9, -13.85 )
-
 [node name="Godotin" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -6.1 )
+
+[node name="Portal" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6.6, 3.55, -11.15 )
+
+[node name="MusicaFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
